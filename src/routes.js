@@ -1,9 +1,10 @@
-const { Router } = require('express');
+import { Router } from 'express';
+import './database';
+
+import UserController from './apps/controllers/UserController';
 
 const routes = new Router();
 
-routes.get('/', (req, res) => {
-  return res.json({ result: 'Hello Geek!' });
-});
+routes.post('/users', UserController.store);
 
-module.exports = routes;
+export default routes;
